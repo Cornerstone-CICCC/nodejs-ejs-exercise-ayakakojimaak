@@ -1,0 +1,22 @@
+<%- include("partials/header",{title:title}) %>
+<main>
+  <h2><%= pageTitle %></h2>
+  <form action="/" method="POST">
+    <input type="text" name="name" />
+    <input type="submit" value="submit" />
+  </form>
+  <% if (err) { %>
+  <span><%= err %></span>
+  <% } %>
+  <ul>
+    <% resultList.forEach(result => { %>
+    <li>
+      <div><%= result.name %></div>
+      <div>result: <%= result.title %></div>
+      <div><%= result.content %></div>
+      <div>lucky color is <span style="background: <%= result.color %>"><%= result.color %></span></div>
+    </li>
+    <% }) %>
+  </ul>
+</main>
+<%- include("partials/footer",{title:title}) %>
